@@ -1,0 +1,61 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{hyperref}% no funciona con \enese
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={guangyan},
+    bookmarks=true,
+    pdfpagemode=FullScreen,
+}
+
+%\input{margenes_tikz}
+
+\usepackage[bf,sf,center]{titlesec} % Required for modifying section titles - bold, sans-serif, centered
+\titleformat{\section}[display]
+  {\normalfont\bfseries\filcenter}{\LARGE}{1ex}
+  {\titlerule[2pt]\vspace{2ex}}[\vspace{1ex}{\titlerule[2pt]}]
+  %{\LARGE}
+\titleformat{\subsection}[display]
+  {\normalfont\bfseries\filcenter}{\thesubsection}{6pt}{\Large} %%\thesubsection pone el subsection
+  \titleformat{\subsubsection}[runin]
+  {\normalfont\bfseries}{\thesubsubsection}{6pt}{\Large}
+%\documentclass{paladio_24}
+\usepackage{etoolbox}
+%\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\renewcommand{\thesubsection}{\arabic{subsection}} %descomentar para el sub
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+%\begin{document}
+%\usepackage{tocbibind}
+\author{Alden Omar Luna Zúñiga}
+\begin{document}
+\newcounter{num}
+\section{A}
+\subsection{a}
+\subsection{b}
+\subsection{c}
+\setcounter{num}{\thesubsection}
+\section{B}%\setcounter{subsection}{num}
+\setcounter{subsection}{\arabic{num}}
+\arabic{num}
+\subsection{a}
+\subsection{b}
+\subsection{c}
+\setcounter{num}{\thesubsection}
+\section{C}
+\setcounter{subsection}{\arabic{num}}
+\subsection{a}
+\subsection{b}
+\subsection{c}
+\subsection{a}
+\subsection{b}
+\subsection{c}
+\end{document}
