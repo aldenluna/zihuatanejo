@@ -1,0 +1,210 @@
+\documentclass[]{article}
+\usepackage[bf,sf,center]{titlesec} % Required for modifying section titles - bold, sans-serif, centered
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%
+\newcommand{\entry}[4]{\noindent{\ene{#1}}\markboth{#1}{#1}\ \textbf{(#2)}\ {#3}\ $\bullet$\ {#4}\par} %Defines the command to print each word on the page,
+\usepackage[marginpar=1cm]{geometry}
+ \geometry{a4paper, total={170mm,257mm},left=20mm, top=20mm, }
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%
+%%%% multicomluna
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+%%%
+\usepackage[inline]{enumitem} % Required for list customisation
+%%%%%%%%%%%%%%%%%%%%%%%% paquete geometrico %%%%%%%%%%%% 
+\usepackage{polyglossia}
+%\usepackage{csquotes} % Causes some error messages?
+% Load font from current working directory. 
+\setmainfont[
+  BoldFont          = LinLibertine_RZ.otf,
+  ItalicFont        = LinLibertine_RI.otf,
+  BoldItalicFont    = LinLibertine_RZI.otf,
+  Ligatures=TeX]{LinLibertine_R.otf}
+\setsansfont[
+  BoldFont          = LinBiolinum_RB.otf,
+  ItalicFont        = LinBiolinum_RI.otf,
+  BoldItalicFont    = LinBiolinum_RI.otf, % FIXME?!
+  Ligatures=TeX]{LinBiolinum_R.otf}
+\setmainlanguage{spanish}
+%\setotherlanguage{russian}
+%----------------------------------------------------------
+\usepackage{tikz}
+%---------------------------------------------------------------
+\newfontfamily{\ena}{Noto Sans CJK TC}
+\newfontfamily{\ene}{Noto Serif CJK TC}
+%---------------------------------------------------------------
+%\usepackage{propio1}
+\usepackage{comand0}
+
+%\usepackage{propio3} %%% aqui esta abreviacion
+%---------------------------------------------------------------
+\usepackage{array}
+\usepackage{paracol}
+\usepackage{textcomp}
+\usepackage{hyperref}% no funciona con \enese 罪
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={guangyan},
+   % bookmarks=true,
+    pdfpagemode=FullScreen,
+}
+\titleformat{\section}[display]
+  {\normalfont\bfseries\filcenter}{\LARGE}{1ex}
+  {\titlerule[2pt]\vspace{2ex}}[\vspace{1ex}{\titlerule[2pt]}]
+  %{\LARGE}
+\titleformat{\subsection}[display]
+  {\normalfont\bfseries\filcenter}{\thesubsection}{6pt}{\Large} %%\thesubsection pone el subsection
+  \titleformat{\subsubsection}[runin]
+  {\normalfont\bfseries}{\thesubsubsection}{6pt}{\Large}
+%\documentclass{paladio_24}
+\usepackage{etoolbox}
+%\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\renewcommand{\thesubsection}{\arabic{subsection}} %descomentar para el sub
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+%\begin{document}
+%\usepackage{tocbibind}
+  %\newfontfamily\discreto[Ligatures={Discretionary}]{Junicode}
+\usepackage{letltxmacro}
+\usepackage[xindy]{imakeidx}
+%\usepackage{blindtext}
+\makeatletter
+% Global redefinition of indexentry to section instead of page%
+\renewcommand{\imki@wrindexentrysplit}[3]{%
+ \expandafter\protected@write\csname#1@idxfile\endcsname{}%
+    {\string\indexentry{#2}{\thesubsubsection}}%
+}%
+\makeatother
+%\usepackage{blindtext}
+\makeindex[name=fon, columns=5 ,title=Índice Fónetico, intoc, 
+options= -M subindice.xdy]
+\makeindex[name=esquinas, columns=5, title={Índice Cuadrangular}, intoc, options= -M subindice.xdy]
+
+%\newcommand{\BH}[1]{\large\textbf{\hyperpage{#1}}\normalsize}
+\newcommand{\IN}[1]{\index{#1}}
+%https://tex.stackexchange.com/questions/22012/hyperref-and-imakeidx-do-not-work-together予
+%\usepackage[style=ieee,backend=biber]{biblatex} 
+%\addbibresource{referencias.bib} 
+\author{Alden Omar Luna Zúñiga}
+\title{Proeycto Zihuatanejo}
+\begin{document} \newcounter{subsss}
+%\maketitle
+\begin{multicols}{4}
+  \tableofcontents
+\end{multicols}
+\pagebreak
+\section{1 Trazo}\label{1trazo} 
+\begin{multicols}{2}
+\input{1trazo/seccion_1dac}
+ \end{multicols}
+ \section{2 trazos}\label{2trazos}\setcounter{subsection}{6}
+ \begin{multicols}{2}
+\input{2trazos/inte19a}%1,23,209
+\end{multicols}
+\section{3 trazos}\label{3trazos} \setcounter{subsection}{29} \begin{multicols}{2}
+\input{3trazos/seccion_3f}
+\end{multicols}
+
+\section{4 trazos}\label{4trazos}\setcounter{subsection}{60}
+\begin{multicols}{2}
+\input{4trazos/seccion_4fg}
+\end{multicols}
+
+\section{5 trazos}\label{5trazos}\setcounter{subsection}{94}
+\begin{multicols}{2}
+\input{5trazos/seccion_5b}
+\end{multicols}
+
+\section{6 trazos}\label{6trazos}\setcounter{subsection}{117}
+\begin{multicols}{2}
+\input{6trazos/seccion_6b}
+\end{multicols}
+
+\section{7 trazos}\label{7trazos}\setcounter{subsection}{148}
+\begin{multicols}{2}
+\input{7trazos/seccion_7ab}
+\end{multicols}
+\section{8 trazos}\label{8trazos}\setcounter{subsection}{166}
+rpe asdf.
+\begin{multicols}{2}
+\input{8trazos/seccion_8a}
+\end{multicols}
+\section{9 trazos}\label{9trazos}\setcounter{subsection}{175}
+rpe asdf.
+\begin{multicols}{2}
+\input{9trazos/seccion_9a}
+\end{multicols}
+\section{10 trazos}\label{10trazos}\setcounter{subsection}{186}
+\begin{multicols}{2}
+\input{10trazos/seccion_10a}
+\end{multicols}
+\section{11 trazos}\label{11trazos}\setcounter{subsection}{194}
+rpe asdf.
+\begin{multicols}{2}
+\input{10trazos/seccion_11a}
+\end{multicols}
+
+\input{10trazos/seccion_12}
+
+\begin{enumerate}[label=\Roman*]
+  \item One 
+  \begin{enumerate*}[label=(\alph*)]
+\item first item
+\item second item
+\end{enumerate*}
+  \item Two \begin{enumerate*}[label=\textbf{\arabic*})]
+\item first item
+\item second item
+\end{enumerate*}
+  \item Three
+\end{enumerate}
+
+\begin{enumerate}[label=\roman*]
+  \item {\ene a あ気　お　ああｱｵｲｷ}
+  \item Two
+  \item Three
+\end{enumerate}
+\section{Indentaciones}
+\begin{enumerate} [label=Step \arabic{enumi}.,ref=Step \arabic{enumi}, leftmargin=*]
+\item Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A
+\item Step B
+\item Step C
+\item Step D
+\end{enumerate}
+
+\noindent
+Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text
+
+\begin{enumerate} [label=Step \arabic{enumi}.,ref=Step \arabic{enumi}, wide=0pt]
+\item Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A
+\item Step B
+\item Step C
+\item Step D
+\end{enumerate}
+
+\noindent
+Some text Some text Some text Some text Some text Some text Some text Some text Some text Some text
+
+\begin{enumerate} [label=Step \arabic{enumi}.,ref=Step \arabic{enumi}, align=left]
+\item Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A Step A
+\item Step B
+\item Step C
+\item Step D
+\end{enumerate}
+%\pagebreak
+%\section{Bibliograf\'{i}a}
+%\nocite{*}
+%\printbibliography[heading=bibintoc]%<- add a ToC entry for the bibliography
+$_{1}^{0}${\ene 百}$_{1}^{0}$
+\pagebreak
+\input{tabla/hyper_tabla}
+%\printindex[fon]
+\pagebreak
+%\input{tabla/hyp_cuarto}
+\printindex[fon]
+%\pagebreak
+\printindex[esquinas]
+\end{document}
